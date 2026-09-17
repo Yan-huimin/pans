@@ -10,6 +10,9 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 project(pans VERSION 0.1.0 LANGUAGES C CXX)
 
+# 生成 compile_commands.json 供 clangd 等工具使用
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include(GNUInstallDirs) # 引入安装目录变量
 include(CMakePackageConfigHelpers)  # 创建配置文件工具集
 
