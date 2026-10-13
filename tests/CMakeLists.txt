@@ -36,3 +36,4 @@ foreach(TEST_SOURCE IN LISTS PANS_TEST_SOURCES)
     
 endforeach(TEST_SOURCE IN LISTS PANS_TEST_SOURCES)
 
+add_subdirectory(inner_tests)
