@@ -2,7 +2,7 @@
 #define PANS_INCLUDE_PANS_MACROS_H
 
 #include <cassert>
-// #include <iostream>
+#include <iostream>
 #include <cstdint>
 
 #define PANS_ASSERT(x) \
