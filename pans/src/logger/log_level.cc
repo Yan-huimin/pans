@@ -23,11 +23,18 @@ std::string_view LogLevel::ToString(Level level) noexcept
 LogLevel::Level LogLevel::FromString(std::string_view value) noexcept
 {
     std::array<char, 6> normalized{};
-    std::transform(value.begin(), value.end(), normalized.begin(), [](unsigned char character){
-        return static_cast<char>(std::toupper(character));
+    std::transform(
+        value.begin(), 
+        value.end(), 
+        normalized.begin(), 
+        [](unsigned char character){
+            return static_cast<char>(std::toupper(character));
     });
 
-    const std::string_view upper_value(normalized.data(), value.size());
+    const std::string_view upper_value(
+        normalized.data(), 
+        value.size()
+    );
 #define XX(name) if(upper_value == #name) return Level::LOG_LV_##name;
     XX(DEBUG)
     XX(INFO)

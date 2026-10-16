@@ -11,6 +11,7 @@
 
 namespace pans::detail {
 
+// Class InlineBuffer
 template<std::size_t INLINE_CAPACITY>
 class InlineBuffer{
 
@@ -68,6 +69,8 @@ private:
     std::size_t m_size = 0;
 };
 
+
+// Class SmallStreamBuffer
 template<std::size_t INLINE_CAPACITY>
 class SmallStreamBuffer final : public std::streambuf
 {
@@ -104,7 +107,6 @@ private:
 
 };
 
-
-}
+}   // namespace pans::detail
 
 #endif
