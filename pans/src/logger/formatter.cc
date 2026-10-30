@@ -280,7 +280,7 @@ int Formatter::parse()
         }
 
         ASSERT_RETVAL2(index + 1 < m_pattern.size(), -1, "logger foramt pattern ends with an incomplete directive");
-        const char directive = m_pattern[index];
+        const char directive = m_pattern[++index];
         if(directive == '%')
         {
             literal.push_back('%');

@@ -16,6 +16,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(GNUInstallDirs) # 引入安装目录变量
 include(CMakePackageConfigHelpers)  # 创建配置文件工具集
 
+# 构建目录的开关
 option(PANS_BUILD_EXAMPLES "Build example" ON)
 option(PANS_BUILD_TESTS    "Build tests"    ON)
 option(PANS_BUILD_TOOLS    "Build tools"   ON)
@@ -40,7 +41,7 @@ include(cmake/pansOptions.cmake)
 add_subdirectory(pans)
 
 if(PANS_BUILD_TESTS)
-    enable_testing()
+    enable_testing()    # 启用CMake的测试支持
     add_subdirectory(tests)
 endif()
 if(PANS_BUILD_TOOLS)

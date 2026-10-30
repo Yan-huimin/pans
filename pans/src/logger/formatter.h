@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <string_view>
 
 #include "logger/buffer.h"
 #include "logger/buffer_config.h"
@@ -25,7 +26,7 @@ public:
     };
 
     // Formatter() = default;
-    explicit Formatter(std::string_view parrern);
+    explicit Formatter(std::string_view pattern);
 
     void format(const LogRecordView& record, FormattedRecordBuffer& output) const;
 
