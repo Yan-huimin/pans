@@ -19,7 +19,7 @@ class PANS_API Logger final
 {
 public:
     class Impl;
-    explicit Logger(std::string_view name = "root");
+    explicit Logger(std::string name = "root");
     ~Logger();
 
     Logger(const Logger&) = delete;
