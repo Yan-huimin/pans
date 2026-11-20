@@ -34,6 +34,7 @@ public:
     [[nodiscard]] std::string_view getName() const noexcept;
     void setFormatter(std::string_view pattern);
 
+    [[nodiscard]] std::string getFormatterPattern() const;
     void addAppender(AppenderPtr appender);
     void removeAppender(const AppenderPtr& appender);
     void clearAppenders();

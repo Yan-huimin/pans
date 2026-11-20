@@ -1,15 +1,11 @@
-#include "pans/logger/appender.h"
-#include "pans/logger/appender_impl.h"
-#include "pans/logger/log_level.h"
+#include "logger/appender_impl.h"
 #include "pans/macros.h"
-#include <atomic>
+
+
 #include <cerrno>
-#include <cstdio>
-#include <ios>
-#include <memory>
-#include <mutex>
+#include <cstring>
+#include <iostream>
 #include <stdexcept>
-#include <string_view>
 #include <system_error>
 #include <utility>
 
@@ -18,7 +14,6 @@
 #else
 #include <unistd.h>
 #endif
-
 
 namespace pans {
 

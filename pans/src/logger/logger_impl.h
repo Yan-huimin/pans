@@ -10,6 +10,8 @@
 
 #include "logger/formatter.h"
 #include "logger/log_record.h"
+#include "pans/logger/appender.h"
+#include "pans/logger/log_level.h"
 
 namespace pans{
 
@@ -24,6 +26,9 @@ public:
     [[nodiscard]] std::string_view getName() const noexcept;
     void setFormatter(std::shared_ptr<const detail::Formatter> formatter);
     [[nodiscard]] std::shared_ptr<const detail::Formatter> getFormatter() const noexcept;
+    void addAppender(AppenderPtr appender);
+    void removeAppender(const AppenderPtr& appender);
+    void clearAppenders();
 
     void flush();
     void sync();
@@ -31,9 +36,10 @@ public:
 
 private:
     std::string m_name;
-    std::atomic<LogLevel::Level> m_level;
+    std::atomic<LogLevel::Level> m_level{LogLevel::Level::LOG_LV_DEBUG};
 
     mutable std::shared_mutex m_mutex;
+    std::shared_ptr<const detail::Formatter> m_formatter;
     std::vector<AppenderPtr> m_appenders;
     LoggerPtr m_root;
 };
